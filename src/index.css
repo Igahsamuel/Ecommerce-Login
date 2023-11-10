@@ -5,8 +5,7 @@
 .ecommerce-image {
   background-image: url("/src/images/laptop.jpg");
   background-size: cover;
-  padding-top: 80px;
-  padding-bottom: 70px;
+  height: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;

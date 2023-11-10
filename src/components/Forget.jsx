@@ -7,7 +7,7 @@ function Forget() {
   const { handleResetPassword, email, setEmail } = useContext(ShopliftContext);
   return (
     <div>
-      <div className="md:w-[725px] lg:w-[500px] bg-[rgba(255,255,255,.15)] backdrop-blur px-8 py-4 my-5 rounded-tr-lg rounded-tl-lg rounded-br-lg">
+      <div className="md:w-[725px] lg:w-[500px] bg-[rgba(255,255,255,.15)] backdrop-blur px-8 py-4 my-5 rounded-tr-lg rounded-tl-lg rounded-br-lg h-[435px]">
         <div className="text-center my-4">
           <h2 className="font-bold text-white text-[26px]">Forgot Password</h2>
           <p className="text-gray-400">
