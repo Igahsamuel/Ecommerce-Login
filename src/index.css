@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .ecommerce-image {
-  background-image: url("src/assets/images/laptop.jpg");
+  background-image: url("src/images/laptop.jpg");
   background-size: cover;
   /* height: 200vh; */
   background-repeat: no-repeat;
