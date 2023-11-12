@@ -10,6 +10,8 @@ export default function ShopliftProvider({ children }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [promoCode, setPromoCode] = useState("");
   const [informationGotten, setInformationGotten] = useState("");
+  const [isValid, setIsValid] = useState(true);
+  const [isValidPassword, setIsValidPassword] = useState(true);
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -60,6 +62,29 @@ export default function ShopliftProvider({ children }) {
     }
   };
 
+  const handleInvalidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmail = (e) => {
+    const checkEmail = e.target.value;
+    setEmail(checkEmail);
+    setIsValid(handleInvalidEmail(checkEmail));
+  };
+
+  const handleInvalidPassword = (password) => {
+    const passwordRegex =
+      /^(?=.*?[A-z])(?=.*?[a-z])(?=.*?[1-9])(?=.*?[@#$%-+]).{8,30}$/;
+    return passwordRegex.test(password);
+  };
+
+  const handlePassword = (e) => {
+    const checkPassword = e.target.value;
+    setPassword(checkPassword);
+    setIsValidPassword(handleInvalidPassword(checkPassword));
+  };
+
   return (
     <ShopliftContext.Provider
       value={{
@@ -78,6 +103,10 @@ export default function ShopliftProvider({ children }) {
         handleLoginSubmit,
         handleResetPassword,
         handleRegistration,
+        handleEmail,
+        isValid,
+        isValidPassword,
+        handlePassword,
       }}
     >
       {children}

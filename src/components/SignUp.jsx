@@ -4,7 +4,6 @@ import { useContext, useState } from "react";
 import { ShopliftContext } from "../contexts/Shopify";
 
 function SignUp() {
-  const [isValid, setIsValid] = useState(true);
   const {
     name,
     email,
@@ -19,17 +18,14 @@ function SignUp() {
     setPromoCode,
     setInformationGotten,
     handleRegistration,
+    isValid,
+    isValidPassword,
+    handleEmail,
+    handlePassword,
   } = useContext(ShopliftContext);
 
-  const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const handleEmail = (e) => {
-    const checkEmail = e.target.value;
-    setEmail(checkEmail);
-    setIsValid(isValidEmail(checkEmail));
+  const handlePhoneNumber = (e) => {
+    const checkPhone = e.target.value;
   };
 
   return (
@@ -62,7 +58,7 @@ function SignUp() {
             value={email}
             onChange={handleEmail}
           />
-          {!isValid && (
+          {!isValid && email && (
             <p className="text-red-400">please enter a valid Email</p>
           )}
         </div>
@@ -84,9 +80,16 @@ function SignUp() {
             className="py-3 rounded px-2 outline-none"
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePassword}
           />
         </div>
+        {!isValidPassword && password && (
+          <p className="text-red-500">
+            password must contain minimum of 8 digits uppercase,lowercase,number
+            and symbol
+          </p>
+        )}
+
         <div className="flex flex-col my-4">
           <label className="text-gray-100">
             Referrer Phone or Promo Code (Optional)

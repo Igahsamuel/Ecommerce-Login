@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <div className="flex items-center justify-center ecommerce-image">
-        <div className="mb-[71px]">
+        <div>
           <h2 className="flex items-center justify-center gap-3 text-[30px] font-bold py-[18px] text-white">
             <span>
               <img src="/svg/shopify.svg" alt="" className="w-[30px]" />

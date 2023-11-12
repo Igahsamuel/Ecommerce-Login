@@ -9,4 +9,17 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  /* overflow: auto; */
+}
+
+@media screen and (min-width: 610px) {
+  .ecommerce-image {
+    background-image: url("/src/images/laptop.jpg");
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    /* overflow: auto; */
+  }
 }

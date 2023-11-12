@@ -4,7 +4,8 @@ import { ShopliftContext } from "../contexts/Shopify";
 import { useContext } from "react";
 
 function Forget() {
-  const { handleResetPassword, email, setEmail } = useContext(ShopliftContext);
+  const { handleResetPassword, email, setEmail, inValidEmail, handleEmail } =
+    useContext(ShopliftContext);
   return (
     <div>
       <div className="md:w-[725px] lg:w-[500px] bg-[rgba(255,255,255,.15)] backdrop-blur px-8 py-4 my-5 rounded-tr-lg rounded-tl-lg rounded-br-lg h-[435px]">
@@ -21,8 +22,11 @@ function Forget() {
             className="py-3 rounded px-3"
             placeholder="e.g. abcd@gmail.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmail}
           />
+          {!inValidEmail && email && (
+            <p className="text-red-500">Please Enter a valid email</p>
+          )}
         </div>
         <div className="my-7">
           <button

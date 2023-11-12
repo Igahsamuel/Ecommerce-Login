@@ -4,8 +4,17 @@ import { ShopliftContext } from "../contexts/Shopify";
 import { useContext, useState } from "react";
 
 function Login() {
-  const { email, setEmail, password, setPassword, handleLoginSubmit } =
-    useContext(ShopliftContext);
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleLoginSubmit,
+    isValid,
+    isValidPassword,
+    handleEmail,
+    handlePassword,
+  } = useContext(ShopliftContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowPassword = () => {
@@ -29,8 +38,12 @@ function Login() {
             type="text"
             className="py-3 rounded px-3 outline-none"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmail}
+            required
           />
+          {!isValid && email && (
+            <p className="text-red-500">Please enter a valid email</p>
+          )}
         </div>
         <div className="flex flex-col my-4 relative">
           <label className="text-gray-100">Password</label>
@@ -38,7 +51,8 @@ function Login() {
             type={showPassword ? "text" : "password"}
             className="py-3 rounded px-3 outline-none"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePassword}
+            required
           />
           {password ? (
             <div className="absolute bottom-2 right-2">
@@ -61,6 +75,12 @@ function Login() {
             </div>
           ) : null}
         </div>
+        {!isValidPassword && password && (
+          <p className="text-red-500 ">
+            password must contain minimum of 8 digits uppercase,lowercase,number
+            and symbol
+          </p>
+        )}
         <div className="my-7">
           <button className="text-gray-100 py-3 px-5 bg-orange-400 w-[100%] rounded-br-md rounded-tr-md rounded-tl-md">
             LOG IN
