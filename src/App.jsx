@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <Router>
-      <div className="flex items-center justify-center ecommerce-image">
+      <div className="flex items-center justify-center ecommerce-image h-auto min-h-screen">
         <div>
           <h2 className="flex items-center justify-center gap-3 text-[30px] font-bold py-[18px] text-white">
             <span>

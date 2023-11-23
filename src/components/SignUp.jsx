@@ -24,9 +24,7 @@ function SignUp() {
     handlePassword,
   } = useContext(ShopliftContext);
 
-  const handlePhoneNumber = (e) => {
-    const checkPhone = e.target.value;
-  };
+ 
 
   return (
     <div>
